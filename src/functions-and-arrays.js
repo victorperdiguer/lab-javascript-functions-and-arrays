@@ -56,7 +56,11 @@ function sum(list) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+//we reuse function sum because it's already made to cover all bases
 function averageNumbers(numbers) {
+  if (numbers.length === 0) {
+    return null;
+  }
   return sum(numbers)/numbers.length;
 }
 
@@ -64,10 +68,21 @@ function averageNumbers(numbers) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+//function 'sum' already accepts string data types
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  return sum(wordsArr)/wordsArr.length;
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(list) {
+  if (list.length === 0) {
+    return null;
+  }
+  return sum(list)/list.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -84,14 +99,29 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(list) {
+  //check if the list is empty
+  if (list.length === 0) {
+    return null;
+  }
+  //We will use a set. A set is basically an array but it can only hold unique values. Let's make a set out of the array.
+  let result = new Set(list);
+  //The 'set' is actually an object.
+  //We need to give the values stored in the set into an array back again. Just put it into brackets to 'array-fy' the set, then use the spread operator to separate the values into different elements of the array.
+  return [...result];
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(list, word) {
+  if (list.length === 0) {
+    return null;
+  }
+  return list.includes(word);
+}
 
 
 
@@ -110,7 +140,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(list, word) {
+  let result = 0;
+  for (let elem of list) {
+    if (elem === word) {
+      result++;
+    }
+  }
+  return result;
+}
 
 
 
@@ -138,7 +176,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  
+}
 
 
 
