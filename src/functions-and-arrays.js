@@ -120,6 +120,7 @@ function doesWordExist(list, word) {
   if (list.length === 0) {
     return null;
   }
+  //returns true if the word is in the list, false if not
   return list.includes(word);
 }
 
@@ -177,7 +178,20 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  
+  //we initialize the variable product with the value of the first quadrant so we have a reference to compare to through our loop
+  let product = matrix[0][0]*matrix[1][0]*matrix[0][1]*matrix[1][1];
+  //double loop - first one iterates through 'rows', seconde one through 'columns'.
+  //The length of each iteration has to be number of elements inside row/column minus one, because we are considering 2x2 matrixes and we are calculating each product from the top-left corner.
+  for (i=0; i<matrix.length-1; i++) {
+    for (j=0; j<matrix[i].length-1; j++) {
+      candidate = matrix[i][j]*matrix[i+1][j]*matrix[i][j+1]*matrix[i+1][j+1];
+      console.log(candidate);
+      if (candidate > product) {
+        product = candidate;
+      }    
+    }
+  }
+  return product;
 }
 
 
